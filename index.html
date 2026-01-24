@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="tr">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ödeme Bilgileri</title>
   <meta name="description" content="Banka/IBAN ve belge indirme sayfası." />
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+
   <style>
     :root {
       --bg: #0b0f19;
@@ -17,9 +17,7 @@
       --line: rgba(255, 255, 255, .10);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -42,15 +40,8 @@
       margin-top: 14px;
     }
 
-    h1 {
-      font-size: 22px;
-      margin: 0 0 6px;
-    }
-
-    h2 {
-      font-size: 16px;
-      margin: 0 0 10px;
-    }
+    h1 { font-size: 22px; margin: 0 0 6px; }
+    h2 { font-size: 16px; margin: 0 0 10px; }
 
     p {
       margin: 8px 0 0;
@@ -58,13 +49,11 @@
       line-height: 1.5;
     }
 
-    .small {
-      font-size: 12px;
-      color: var(--muted);
-    }
+    .small { font-size: 12px; color: var(--muted); }
 
     .mono {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      text-decoration: none;
     }
 
     .row {
@@ -84,8 +73,7 @@
       min-width: 260px;
     }
 
-    button,
-    a.btn {
+    button, a.btn {
       border: 0;
       cursor: pointer;
       background: var(--btn);
@@ -101,10 +89,7 @@
       white-space: nowrap;
     }
 
-    button.secondary,
-    a.secondary {
-      background: rgba(255, 255, 255, .10);
-    }
+    button.secondary, a.secondary { background: rgba(255, 255, 255, .10); }
 
     .bank {
       display: grid;
@@ -124,9 +109,7 @@
     }
 
     @media (min-width: 700px) {
-      .grid2 {
-        grid-template-columns: 1fr 1fr;
-      }
+      .grid2 { grid-template-columns: 1fr 1fr; }
     }
 
     .warn {
@@ -134,21 +117,11 @@
       padding-left: 12px;
     }
 
-    .status {
-      margin-top: 8px;
-      min-height: 18px;
-    }
+    .status { margin-top: 8px; min-height: 18px; }
 
     /* Otomatik linklenen tel/iban altını çizmesin */
-    a,
-    a:visited {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .mono {
-      text-decoration: none;
-    }
+    a, a:visited { color: inherit; text-decoration: none; }
+    span, .field, .mono { -webkit-text-decoration-skip: objects; }
   </style>
 </head>
 
@@ -176,14 +149,13 @@
           Açıklama kısmına aşağıdaki formatlardan <strong>birini</strong> yazın (numarayı kendinize göre değiştirin):
         </p>
         <p class="mono" style="margin:10px 0 0; color:var(--text);">
-          altın karşılığını elden aldım tc: 1112225458
+          altın karşılığını elden aldım tc: 11111111111
         </p>
         <p class="mono" style="margin:8px 0 0; color:var(--text);">
-          altın karşılığını elden aldım vergi numarası: 1112225458
+          altın karşılığını elden aldım vergi numarası: 1111111111
         </p>
       </div>
     </section>
-
 
     <!-- BANKALAR -->
     <section class="card">
@@ -205,7 +177,7 @@
         <!-- Banka 2 -->
         <div class="bankItem">
           <div class="small">Banka</div>
-          <div><strong>İŞ BANKASI </strong></div>
+          <div><strong>İŞ BANKASI</strong></div>
           <div style="height:8px"></div>
           <div class="small">IBAN</div>
           <div class="row">
@@ -217,7 +189,7 @@
         <!-- Banka 3 -->
         <div class="bankItem">
           <div class="small">Banka</div>
-          <div><strong>GARANTİ </strong></div>
+          <div><strong>GARANTİ</strong></div>
           <div style="height:8px"></div>
           <div class="small">IBAN</div>
           <div class="row">
@@ -229,7 +201,7 @@
         <!-- Banka 4 -->
         <div class="bankItem">
           <div class="small">Banka</div>
-          <div><strong>YAPIKREDİ </strong></div>
+          <div><strong>YAPIKREDİ</strong></div>
           <div style="height:8px"></div>
           <div class="small">IBAN</div>
           <div class="row">
@@ -237,32 +209,30 @@
             <button type="button" onclick="copyFrom('iban4')">IBAN Kopyala</button>
           </div>
         </div>
-      </div>
 
-      <!-- Banka 5 -->
-      <div class="bankItem">
-        <div class="small">Banka</div>
-        <div><strong>ZİRAAT </strong></div>
-        <div style="height:8px"></div>
-        <div class="small">IBAN</div>
-        <div class="row">
-          <div class="field mono" id="iban5">TR 2900 0100 1728 9801 9396 5002</div>
-          <button type="button" onclick="copyFrom('iban4')">IBAN Kopyala</button>
+        <!-- Banka 5 -->
+        <div class="bankItem">
+          <div class="small">Banka</div>
+          <div><strong>ZİRAAT</strong></div>
+          <div style="height:8px"></div>
+          <div class="small">IBAN</div>
+          <div class="row">
+            <div class="field mono" id="iban5">TR29 0001 0017 2898 0193 9650 02</div>
+            <button type="button" onclick="copyFrom('iban5')">IBAN Kopyala</button>
+          </div>
         </div>
-      </div>
-      </div>
 
-      <!-- Banka 6 -->
-      <div class="bankItem">
-        <div class="small">Banka</div>
-        <div><strong>DÜNYA KATILIM </strong></div>
-        <div style="height:8px"></div>
-        <div class="small">IBAN</div>
-        <div class="row">
-          <div class="field mono" id="iban6">TR96 0021 4010 0000 0000 0256 67</div>
-          <button type="button" onclick="copyFrom('iban4')">IBAN Kopyala</button>
+        <!-- Banka 6 -->
+        <div class="bankItem">
+          <div class="small">Banka</div>
+          <div><strong>DÜNYA KATILIM</strong></div>
+          <div style="height:8px"></div>
+          <div class="small">IBAN</div>
+          <div class="row">
+            <div class="field mono" id="iban6">TR96 0021 4010 0000 0000 0256 67</div>
+            <button type="button" onclick="copyFrom('iban6')">IBAN Kopyala</button>
+          </div>
         </div>
-      </div>
       </div>
 
       <p class="small status" id="status2" aria-live="polite"></p>
@@ -291,8 +261,7 @@
       <div style="height:12px"></div>
       <div class="warn">
         <p><strong>Uyarı:</strong> Doldururken <strong>fatura</strong> kısmını ve <strong>gr</strong> kısmını
-          <strong>boş bırakmanız</strong> gerekiyor.
-        </p>
+          <strong>boş bırakmanız</strong> gerekiyor.</p>
       </div>
     </section>
 
@@ -305,12 +274,15 @@
 
   <script>
     function copyFrom(id) {
-      const text = document.getElementById(id).innerText.trim();
+      const el = document.getElementById(id);
+      const text = (el?.innerText || "").trim();
+      if (!text) return;
+
       navigator.clipboard.writeText(text).then(() => {
-        // basit status: hangi bloktan kopyalandıysa ona yakın göster
         const msg = "Kopyalandı ✅";
         if (id === "receiverText") document.getElementById("status1").innerText = msg;
         else document.getElementById("status2").innerText = msg + " (" + id.toUpperCase() + ")";
+
         setTimeout(() => {
           if (id === "receiverText") document.getElementById("status1").innerText = "";
           else document.getElementById("status2").innerText = "";
@@ -321,5 +293,4 @@
     }
   </script>
 </body>
-
 </html>
