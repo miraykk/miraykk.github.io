@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ödeme Bilgileri | Şirket Adı</title>
-  <meta name="description" content="Ödeme ve belge indirme sayfası." />
+  <title>Ödeme Bilgileri</title>
+  <meta name="description" content="Banka/IBAN ve belge indirme sayfası." />
   <style>
     :root {
       --bg: #0b0f19;
@@ -13,6 +13,7 @@
       --text: #e8eefc;
       --muted: #a7b2cc;
       --btn: #2a63ff;
+      --line: rgba(255, 255, 255, .10);
     }
 
     * {
@@ -27,14 +28,14 @@
     }
 
     .wrap {
-      max-width: 820px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 28px 16px 44px;
+      padding: 26px 16px 44px;
     }
 
     .card {
       background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .08);
+      border: 1px solid var(--line);
       border-radius: 16px;
       padding: 18px;
       margin-top: 14px;
@@ -42,7 +43,7 @@
 
     h1 {
       font-size: 22px;
-      margin: 0 0 8px;
+      margin: 0 0 6px;
     }
 
     h2 {
@@ -50,10 +51,19 @@
       margin: 0 0 10px;
     }
 
-    p,
-    li {
+    p {
+      margin: 8px 0 0;
       color: var(--muted);
       line-height: 1.5;
+    }
+
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     }
 
     .row {
@@ -63,18 +73,18 @@
       align-items: center;
     }
 
-    .iban {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    .field {
       background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--line);
       padding: 10px 12px;
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, .08);
       overflow: auto;
+      flex: 1 1 360px;
+      min-width: 260px;
     }
 
     button,
     a.btn {
-      appearance: none;
       border: 0;
       cursor: pointer;
       background: var(--btn);
@@ -84,8 +94,10 @@
       font-weight: 650;
       text-decoration: none;
       display: inline-flex;
-      gap: 8px;
       align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
     }
 
     button.secondary,
@@ -93,85 +105,211 @@
       background: rgba(255, 255, 255, .10);
     }
 
-    .small {
-      font-size: 12px;
-      color: var(--muted);
+    .bank {
+      display: grid;
+      gap: 10px;
+      padding-top: 8px;
     }
 
-    footer {
-      margin-top: 18px;
+    .bankItem {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .08);
-      color: var(--muted);
-      font-size: 12px;
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 700px) {
+      .grid2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .warn {
+      border-left: 4px solid rgba(255, 255, 255, .25);
+      padding-left: 12px;
+    }
+
+    .status {
+      margin-top: 8px;
+      min-height: 18px;
     }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <div class="badge">Şirket Adı • Ödeme & Belgeler</div>
     <h1>Ödeme Bilgileri</h1>
-    <p>Bu sayfadan banka bilgilerini görüntüleyebilir ve belgeleri indirebilirsiniz.</p>
+    <p class="small">Aşağıdaki bilgileri kopyalayıp kullanabilirsiniz.</p>
 
+    <!-- SABİT: ALICI + AÇIKLAMA -->
     <section class="card">
-      <h2>Banka / IBAN</h2>
+      <h2>Sabit Bilgiler</h2>
+
+      <div class="small">Alıcı</div>
+      <div class="field mono" id="receiverText">AKAKÇE KIYMETLİ MADENLER</div>
+
+      <div style="height:12px"></div>
+
+      <div class="small">Açıklama</div>
       <div class="row">
-        <div>
-          <div class="small">Alıcı Ünvanı</div>
-          <div><strong>ŞİRKET ADI LTD. ŞTİ.</strong></div>
+        <div class="field mono" id="descText">KARŞILIĞINI ELDEN ALDIM VE T.C. VEYA VERGİ NO YAZMAK ZORUNLUDUR</div>
+        <button type="button" class="secondary" onclick="copyFrom('descText')">Açıklamayı Kopyala</button>
+      </div>
+      <p class="small status" id="status1" aria-live="polite"></p>
+
+      <div class="small">Açıklama (örnekler)</div>
+
+      <div class="row">
+        <div class="field mono" id="descTc">
+          altın karşılığını elden aldım tc: 1112225458
         </div>
-        <div>
-          <div class="small">Banka</div>
-          <div><strong>BANKA ADI</strong></div>
-        </div>
+        <button type="button" class="secondary" onclick="copyFrom('descTc')">
+          TC’li Açıklamayı Kopyala
+        </button>
       </div>
 
       <div style="height:10px"></div>
 
-      <div class="small">IBAN</div>
-      <div class="row">
-        <div class="iban" id="ibanText">TR00 0000 0000 0000 0000 0000 00</div>
-        <button type="button" onclick="copyIban()">Kopyala</button>
+
+
+    </section>
+
+    <!-- BANKALAR -->
+    <section class="card">
+      <h2>Banka / IBAN</h2>
+
+      <div class="bank">
+        <!-- Banka 1 -->
+        <div class="bankItem">
+          <div class="small">Banka</div>
+          <div><strong>VAKIF KATILIM</strong></div>
+          <div style="height:8px"></div>
+          <div class="small">IBAN</div>
+          <div class="row">
+            <div class="field mono" id="iban1">TR91 0021 0000 0007 6188 6000 03</div>
+            <button type="button" onclick="copyFrom('iban1')">IBAN Kopyala</button>
+          </div>
+        </div>
+
+        <!-- Banka 2 -->
+        <div class="bankItem">
+          <div class="small">Banka</div>
+          <div><strong>İŞ BANKASI </strong></div>
+          <div style="height:8px"></div>
+          <div class="small">IBAN</div>
+          <div class="row">
+            <div class="field mono" id="iban2">TR78 0006 4000 0012 4203 3445 64</div>
+            <button type="button" onclick="copyFrom('iban2')">IBAN Kopyala</button>
+          </div>
+        </div>
+
+        <!-- Banka 3 -->
+        <div class="bankItem">
+          <div class="small">Banka</div>
+          <div><strong>GARANTİ </strong></div>
+          <div style="height:8px"></div>
+          <div class="small">IBAN</div>
+          <div class="row">
+            <div class="field mono" id="iban3">TR81 0006 2000 4240 0006 2883 69</div>
+            <button type="button" onclick="copyFrom('iban3')">IBAN Kopyala</button>
+          </div>
+        </div>
+
+        <!-- Banka 4 -->
+        <div class="bankItem">
+          <div class="small">Banka</div>
+          <div><strong>YAPIKREDİ </strong></div>
+          <div style="height:8px"></div>
+          <div class="small">IBAN</div>
+          <div class="row">
+            <div class="field mono" id="iban4">TR20 0006 7010 0000 0030 7412 69</div>
+            <button type="button" onclick="copyFrom('iban4')">IBAN Kopyala</button>
+          </div>
+        </div>
       </div>
 
-      <p class="small" id="copyStatus" aria-live="polite" style="margin-top:8px;"></p>
-      <p class="small">Not: Açıklama kısmına “Fatura No / Sipariş No” yazmanız önerilir.</p>
+      <!-- Banka 5 -->
+      <div class="bankItem">
+        <div class="small">Banka</div>
+        <div><strong>ZİRAAT </strong></div>
+        <div style="height:8px"></div>
+        <div class="small">IBAN</div>
+        <div class="row">
+          <div class="field mono" id="iban4">TR 2900 0100 1728 9801 9396 5002</div>
+          <button type="button" onclick="copyFrom('iban4')">IBAN Kopyala</button>
+        </div>
+      </div>
+      </div>
+
+      <!-- Banka 6 -->
+      <div class="bankItem">
+        <div class="small">Banka</div>
+        <div><strong>DÜNYA KATILIM </strong></div>
+        <div style="height:8px"></div>
+        <div class="small">IBAN</div>
+        <div class="row">
+          <div class="field mono" id="iban4">TR96 0021 4010 0000 0000 0256 67</div>
+          <button type="button" onclick="copyFrom('iban4')">IBAN Kopyala</button>
+        </div>
+      </div>
+      </div>
+
+      <p class="small status" id="status2" aria-live="polite"></p>
     </section>
 
+    <!-- BELGELER -->
     <section class="card">
       <h2>Belgeler (PDF)</h2>
-      <ul>
-        <li>
-          Sözleşme:
-          <a class="btn secondary" href="./sozlesme.pdf" download>İndir</a>
-        </li>
-        <li style="margin-top:10px;">
-          Fiyat Listesi:
-          <a class="btn secondary" href="./fiyat-listesi.pdf" download>İndir</a>
-        </li>
-      </ul>
-      <p class="small">PDF’ler aynı klasörde olmalı. Dosya adları birebir aynı olmalı.</p>
+
+      <div class="grid2">
+        <div class="card" style="margin:0;">
+          <h2 style="margin-bottom:6px;">Alım Belgesi</h2>
+          <p class="small">Alım yaparken indir, doldur, imzala.</p>
+          <div style="height:10px"></div>
+          <a class="btn secondary" href="./AKAKÇE_ALIM.pdf" download>İndir (Alım)</a>
+        </div>
+
+        <div class="card" style="margin:0;">
+          <h2 style="margin-bottom:6px;">Satım Belgesi</h2>
+          <p class="small">Satım yaparken indir, doldur, imzala.</p>
+          <div style="height:10px"></div>
+          <a class="btn secondary" href="./AKAKÇE_SATIM.pdf" download>İndir (Satım)</a>
+        </div>
+      </div>
+
+      <div style="height:12px"></div>
+      <div class="warn">
+        <p><strong>Uyarı:</strong> Doldururken <strong>fatura</strong> kısmını ve <strong>gr</strong> kısmını
+          <strong>boş bırakmanız</strong> gerekiyor.
+        </p>
+      </div>
     </section>
 
-    <footer class="card">
+    <!-- İLETİŞİM -->
+    <section class="card">
       <h2>İletişim</h2>
-      <p class="small">E-posta: info@sirketiniz.com • Tel: +90 …</p>
-    </footer>
+      <p><strong>Telefon:</strong> <span class="mono">+90 531 666 66 06</span></p>
+    </section>
   </main>
 
   <script>
-    function copyIban() {
-      const iban = document.getElementById("ibanText").innerText.trim();
-      navigator.clipboard.writeText(iban).then(() => {
-        document.getElementById("copyStatus").innerText = "IBAN kopyalandı ✅";
+    function copyFrom(id) {
+      const text = document.getElementById(id).innerText.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        // basit status: hangi bloktan kopyalandıysa ona yakın göster
+        const msg = "Kopyalandı ✅";
+        if (id === "descText") document.getElementById("status1").innerText = msg;
+        else document.getElementById("status2").innerText = msg + " (" + id.toUpperCase() + ")";
+        setTimeout(() => {
+          if (id === "descText") document.getElementById("status1").innerText = "";
+          else document.getElementById("status2").innerText = "";
+        }, 1400);
       }).catch(() => {
-        document.getElementById("copyStatus").innerText = "Kopyalama başarısız. IBAN'ı manuel seçip kopyalayın.";
+        alert("Kopyalama başarısız. Metni manuel seçip kopyalayın.");
       });
     }
   </script>
