@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ödeme Bilgileri</title>
   <meta name="description" content="Banka/IBAN ve belge indirme sayfası." />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
   <style>
     :root {
       --bg: #0b0f19;
@@ -137,6 +138,17 @@
       margin-top: 8px;
       min-height: 18px;
     }
+
+    /* Otomatik linklenen tel/iban altını çizmesin */
+    a,
+    a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .mono {
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -149,34 +161,29 @@
     <section class="card">
       <h2>Sabit Bilgiler</h2>
 
-      <div class="small">Alıcı</div>
-      <div class="field mono" id="receiverText">AKAKÇE KIYMETLİ MADENLER</div>
-
-      <div style="height:12px"></div>
-
-      <div class="small">Açıklama</div>
+      <div class="small">Alıcı (kopyala)</div>
       <div class="row">
-        <div class="field mono" id="descText">KARŞILIĞINI ELDEN ALDIM VE T.C. VEYA VERGİ NO YAZMAK ZORUNLUDUR</div>
-        <button type="button" class="secondary" onclick="copyFrom('descText')">Açıklamayı Kopyala</button>
+        <div class="field mono" id="receiverText">AKAKÇE KIYMETLİ MADENLER</div>
+        <button type="button" class="secondary" onclick="copyFrom('receiverText')">Alıcıyı Kopyala</button>
       </div>
       <p class="small status" id="status1" aria-live="polite"></p>
 
-      <div class="small">Açıklama (örnekler)</div>
+      <div style="height:14px"></div>
 
-      <div class="row">
-        <div class="field mono" id="descTc">
+      <div class="small">Açıklama nasıl yazılmalı?</div>
+      <div class="warn" style="margin-top:8px;">
+        <p class="small" style="margin-top:0;">
+          Açıklama kısmına aşağıdaki formatlardan <strong>birini</strong> yazın (numarayı kendinize göre değiştirin):
+        </p>
+        <p class="mono" style="margin:10px 0 0; color:var(--text);">
           altın karşılığını elden aldım tc: 1112225458
-        </div>
-        <button type="button" class="secondary" onclick="copyFrom('descTc')">
-          TC’li Açıklamayı Kopyala
-        </button>
+        </p>
+        <p class="mono" style="margin:8px 0 0; color:var(--text);">
+          altın karşılığını elden aldım vergi numarası: 1112225458
+        </p>
       </div>
-
-      <div style="height:10px"></div>
-
-
-
     </section>
+
 
     <!-- BANKALAR -->
     <section class="card">
@@ -239,7 +246,7 @@
         <div style="height:8px"></div>
         <div class="small">IBAN</div>
         <div class="row">
-          <div class="field mono" id="iban4">TR 2900 0100 1728 9801 9396 5002</div>
+          <div class="field mono" id="iban5">TR 2900 0100 1728 9801 9396 5002</div>
           <button type="button" onclick="copyFrom('iban4')">IBAN Kopyala</button>
         </div>
       </div>
@@ -252,7 +259,7 @@
         <div style="height:8px"></div>
         <div class="small">IBAN</div>
         <div class="row">
-          <div class="field mono" id="iban4">TR96 0021 4010 0000 0000 0256 67</div>
+          <div class="field mono" id="iban6">TR96 0021 4010 0000 0000 0256 67</div>
           <button type="button" onclick="copyFrom('iban4')">IBAN Kopyala</button>
         </div>
       </div>
@@ -302,10 +309,10 @@
       navigator.clipboard.writeText(text).then(() => {
         // basit status: hangi bloktan kopyalandıysa ona yakın göster
         const msg = "Kopyalandı ✅";
-        if (id === "descText") document.getElementById("status1").innerText = msg;
+        if (id === "receiverText") document.getElementById("status1").innerText = msg;
         else document.getElementById("status2").innerText = msg + " (" + id.toUpperCase() + ")";
         setTimeout(() => {
-          if (id === "descText") document.getElementById("status1").innerText = "";
+          if (id === "receiverText") document.getElementById("status1").innerText = "";
           else document.getElementById("status2").innerText = "";
         }, 1400);
       }).catch(() => {
