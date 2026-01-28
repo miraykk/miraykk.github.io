@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /ozel/
+Disallow: /bankalar/
+Allow: /bankalar/vakif-katilim.html

@@ -1,0 +1,40 @@
+:root{
+  --bg:#0b0f19; --card:#121a2a; --text:#e8eefc; --muted:#a7b2cc;
+  --btn:#2a63ff; --line:rgba(255,255,255,.10);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg); color:var(--text);
+}
+.wrap{max-width:900px;margin:0 auto;padding:26px 16px 44px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:14px}
+h1{font-size:22px;margin:0 0 6px}
+h2{font-size:16px;margin:0 0 10px}
+p{margin:8px 0 0;color:var(--muted);line-height:1.5}
+.small{font-size:12px;color:var(--muted)}
+.mono{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  text-decoration:none;
+}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.field{
+  background:rgba(255,255,255,.06); border:1px solid var(--line);
+  padding:10px 12px; border-radius:12px; overflow:auto;
+  flex:1 1 360px; min-width:260px;
+}
+button,a.btn{
+  border:0; cursor:pointer; background:var(--btn); color:white;
+  padding:10px 14px; border-radius:12px; font-weight:650;
+  text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
+  gap:8px; white-space:nowrap;
+}
+button.secondary,a.secondary{background:rgba(255,255,255,.10)}
+.grid2{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:700px){.grid2{grid-template-columns:1fr 1fr}}
+.warn{border-left:4px solid rgba(255,255,255,.25);padding-left:12px}
+.status{margin-top:8px;min-height:18px}
+
+/* iOS/Chrome otomatik link altı çizmesin */
+a,a:visited{color:inherit;text-decoration:none}
+span,.field,.mono{-webkit-text-decoration-skip:objects}
