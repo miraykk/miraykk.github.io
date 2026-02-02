@@ -9,202 +9,157 @@
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="wrap topbar__inner">
+  <header class="top">
+    <div class="wrap">
       <div class="brand">
-        <div class="brand__mark" aria-hidden="true">VK</div>
-        <div class="brand__text">
-          <div class="brand__title">Vakıf Katılım</div>
-          <div class="brand__sub">Ödeme & İletişim Paneli</div>
-        </div>
+        <div class="brand__title">Vakıf Katılım</div>
+        <div class="brand__sub">Ödeme • Belgeler • Telefonlar</div>
       </div>
-
-      <button class="ghost" id="themeBtn" type="button" aria-label="Tema değiştir">
-        <span class="icon" aria-hidden="true">☾</span>
-        <span class="ghost__text">Tema</span>
-      </button>
     </div>
   </header>
 
-  <main class="wrap page">
+  <main class="wrap">
 
     <!-- BANKA -->
     <section class="panel">
       <div class="panel__head">
-        <div>
-          <h2 class="h">Banka Bilgileri</h2>
-          <p class="sub">Bu sayfadaki tüm alanlar tek tıkla kopyalanır.</p>
-        </div>
-        <span class="chip">Kopyalanabilir</span>
+        <h2>Banka Bilgileri</h2>
+        <p class="muted">Tüm alanlar tek tıkla kopyalanır.</p>
       </div>
 
-      <div class="grid">
-        <article class="card">
-          <div class="card__label">Alıcı</div>
-          <div class="copyline">
-            <div class="value mono" id="receiver">AKAKÇE KIYMETLİ MADENLER</div>
-            <button class="btn" data-copy-from="receiver" type="button">
-              <span class="icon" aria-hidden="true">⎘</span> Kopyala
-            </button>
-          </div>
-        </article>
+      <div class="item">
+        <div class="label">Alıcı</div>
+        <div class="row">
+          <div class="field mono" id="receiver">AKAKÇE KIYMETLİ MADENLER</div>
+          <button class="btn" data-copy-from="receiver" type="button">Kopyala</button>
+        </div>
+      </div>
 
-        <article class="card">
-          <div class="card__label">IBAN</div>
-          <div class="copyline">
-            <div class="value mono" id="iban">TR91 0021 0000 0007 6188 6000 03</div>
-            <button class="btn" data-copy-from="iban" type="button">
-              <span class="icon" aria-hidden="true">⎘</span> Kopyala
-            </button>
-          </div>
-          <div class="hint">İpucu: IBAN’ı göndermeden önce boşlukları bankanda kontrol et.</div>
-        </article>
+      <div class="item">
+        <div class="label">IBAN</div>
+        <div class="row">
+          <div class="field mono" id="iban">TR91 0021 0000 0007 6188 6000 03</div>
+          <button class="btn" data-copy-from="iban" type="button">Kopyala</button>
+        </div>
       </div>
 
       <div class="divider"></div>
 
-      <h3 class="h h--sm">Açıklama Örnekleri</h3>
+      <h3 class="h3">Açıklama örnekleri</h3>
 
-      <div class="grid">
-        <article class="card">
-          <div class="card__label">TC ile</div>
-          <div class="copyline">
-            <div class="value mono" id="descTc" data-copy="altın karşılığını elden aldım tc numaram: ">
-              altın karşılığını elden aldım tc numaram: ***********
-            </div>
-            <button class="btn btn--soft" data-copy-from="descTc" type="button">
-              <span class="icon" aria-hidden="true">⎘</span> Kopyala
-            </button>
+      <div class="item">
+        <div class="label">TC ile</div>
+        <div class="row">
+          <div class="field mono" id="descTc" data-copy="altın karşılığını elden aldım tc numaram: ">
+            altın karşılığını elden aldım tc numaram: ***********
           </div>
-        </article>
+          <button class="btn btn--ghost" data-copy-from="descTc" type="button">Kopyala</button>
+        </div>
+      </div>
 
-        <article class="card">
-          <div class="card__label">Vergi No ile</div>
-          <div class="copyline">
-            <div class="value mono" id="descTax" data-copy="altın karşılığını elden aldım vergi numaram: ">
-              altın karşılığını elden aldım vergi numaram: **********
-            </div>
-            <button class="btn btn--soft" data-copy-from="descTax" type="button">
-              <span class="icon" aria-hidden="true">⎘</span> Kopyala
-            </button>
+      <div class="item">
+        <div class="label">Vergi No ile</div>
+        <div class="row">
+          <div class="field mono" id="descTax" data-copy="altın karşılığını elden aldım vergi numaram: ">
+            altın karşılığını elden aldım vergi numaram: **********
           </div>
-        </article>
+          <button class="btn btn--ghost" data-copy-from="descTax" type="button">Kopyala</button>
+        </div>
       </div>
     </section>
 
     <!-- PDF -->
     <section class="panel">
       <div class="panel__head">
-        <div>
-          <h2 class="h">Belgeler (PDF)</h2>
-          <p class="sub">İndir → doldur → imzala.</p>
-        </div>
-        <span class="chip chip--info">PDF</span>
+        <h2>Belgeler (PDF)</h2>
+        <p class="muted">İndir → doldur → imzala.</p>
       </div>
 
-      <div class="grid">
-        <article class="card card--action">
-          <div class="card__top">
-            <h3 class="h h--sm">Altın Alım Belgesi</h3>
-            <span class="pill">Müşteriye para gönderiliyorsa</span>
-          </div>
-          <p class="sub">Alım yaparken indir, doldur, imzala.</p>
-          <a class="btn" href="../AKAKÇE_ALIM.pdf" download>
-            <span class="icon" aria-hidden="true">⬇</span> İndir
-          </a>
-        </article>
+      <div class="grid2">
+        <div class="card">
+          <h3>Altın Alım Belgesi</h3>
+          <p class="muted"><strong>Not:</strong> Müşteriye para gönderiliyorsa kullanılır.</p>
+          <a class="btn" href="../AKAKÇE_ALIM.pdf" download>İndir</a>
+        </div>
 
-        <article class="card card--action">
-          <div class="card__top">
-            <h3 class="h h--sm">Altın Satım Belgesi</h3>
-            <span class="pill">Müşteriden para geliyorsa</span>
-          </div>
-          <p class="sub">Satım yaparken indir, doldur, imzala.</p>
-          <a class="btn" href="../AKAKÇE_SATIM.pdf" download>
-            <span class="icon" aria-hidden="true">⬇</span> İndir
-          </a>
-        </article>
+        <div class="card">
+          <h3>Altın Satım Belgesi</h3>
+          <p class="muted"><strong>Not:</strong> Müşteriden para geliyorsa kullanılır.</p>
+          <a class="btn" href="../AKAKÇE_SATIM.pdf" download>İndir</a>
+        </div>
       </div>
     </section>
 
     <!-- TELEFONLAR -->
     <section class="panel">
-      <div class="panel__head">
+      <div class="panel__head panel__head--row">
         <div>
-          <h2 class="h">Telefonlar</h2>
-          <p class="sub">Tek tıkla ara veya kopyala.</p>
+          <h2>Telefonlar</h2>
+          <p class="muted">Ara veya kopyala.</p>
         </div>
-        <a class="ghost" href="./telefonlar.html">
-          Tümü <span class="icon" aria-hidden="true">→</span>
-        </a>
+        <a class="link" href="./telefonlar.html">Tümü →</a>
       </div>
 
-      <div class="grid">
-        <article class="card">
-          <div class="card__label">Hazine</div>
-          <div class="value mono" id="tel1" data-copy="+905316666606">0531 666 66 06</div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Hazine</h3>
+          <div class="field mono" id="tel1" data-copy="+905316666606">0531 666 66 06</div>
           <div class="actions">
-            <a class="btn" href="tel:+905316666606"><span class="icon" aria-hidden="true">📞</span> Ara</a>
-            <button class="btn btn--soft" data-copy-from="tel1" type="button"><span class="icon" aria-hidden="true">⎘</span> Kopyala</button>
+            <a class="btn" href="tel:+905316666606">Ara</a>
+            <button class="btn btn--ghost" data-copy-from="tel1" type="button">Kopyala</button>
           </div>
-        </article>
+        </div>
 
-        <article class="card">
-          <div class="card__label">Hazine</div>
-          <div class="value mono" id="tel2" data-copy="+905323558232">0532 355 82 32</div>
+        <div class="card">
+          <h3>Hazine</h3>
+          <div class="field mono" id="tel2" data-copy="+905323558232">0532 355 82 32</div>
           <div class="actions">
-            <a class="btn" href="tel:+905323558232"><span class="icon" aria-hidden="true">📞</span> Ara</a>
-            <button class="btn btn--soft" data-copy-from="tel2" type="button"><span class="icon" aria-hidden="true">⎘</span> Kopyala</button>
+            <a class="btn" href="tel:+905323558232">Ara</a>
+            <button class="btn btn--ghost" data-copy-from="tel2" type="button">Kopyala</button>
           </div>
-        </article>
+        </div>
 
-        <article class="card">
-          <div class="card__label">Gebze Şube</div>
-          <div class="value mono" id="tel3" data-copy="+905308325572">0530 832 55 72</div>
+        <div class="card">
+          <h3>Gebze Şube</h3>
+          <div class="field mono" id="tel3" data-copy="+905308325572">0530 832 55 72</div>
           <div class="actions">
-            <a class="btn" href="tel:+905308325572"><span class="icon" aria-hidden="true">📞</span> Ara</a>
-            <button class="btn btn--soft" data-copy-from="tel3" type="button"><span class="icon" aria-hidden="true">⎘</span> Kopyala</button>
+            <a class="btn" href="tel:+905308325572">Ara</a>
+            <button class="btn btn--ghost" data-copy-from="tel3" type="button">Kopyala</button>
           </div>
-        </article>
+        </div>
 
-        <article class="card">
-          <div class="card__label">Bilezik Şube</div>
-          <div class="value mono" id="tel4" data-copy="+905303898676">0530 389 86 76</div>
+        <div class="card">
+          <h3>Bilezik Şube</h3>
+          <div class="field mono" id="tel4" data-copy="+905303898676">0530 389 86 76</div>
           <div class="actions">
-            <a class="btn" href="tel:+905303898676"><span class="icon" aria-hidden="true">📞</span> Ara</a>
-            <button class="btn btn--soft" data-copy-from="tel4" type="button"><span class="icon" aria-hidden="true">⎘</span> Kopyala</button>
+            <a class="btn" href="tel:+905303898676">Ara</a>
+            <button class="btn btn--ghost" data-copy-from="tel4" type="button">Kopyala</button>
           </div>
-        </article>
+        </div>
 
-        <article class="card">
-          <div class="card__label">Muhasebe</div>
-          <div class="value mono" id="tel5" data-copy="+905364746882">0536 474 68 82</div>
+        <div class="card">
+          <h3>Muhasebe</h3>
+          <div class="field mono" id="tel5" data-copy="+905364746882">0536 474 68 82</div>
           <div class="actions">
-            <a class="btn" href="tel:+905364746882"><span class="icon" aria-hidden="true">📞</span> Ara</a>
-            <button class="btn btn--soft" data-copy-from="tel5" type="button"><span class="icon" aria-hidden="true">⎘</span> Kopyala</button>
+            <a class="btn" href="tel:+905364746882">Ara</a>
+            <button class="btn btn--ghost" data-copy-from="tel5" type="button">Kopyala</button>
           </div>
-        </article>
+        </div>
       </div>
     </section>
 
     <!-- İLETİŞİM -->
     <section class="panel panel--cta">
-      <div class="cta">
-        <div>
-          <h2 class="h">İletişim</h2>
-          <p class="sub">Aklına takılan bir şey olursa direkt ara.</p>
-        </div>
-        <a class="btn" href="tel:+905316666606">
-          <span class="icon" aria-hidden="true">📞</span> 0531 666 66 06
-        </a>
+      <div>
+        <h2>İletişim</h2>
+        <p class="muted">Aklına takılan bir şey olursa ara.</p>
       </div>
+      <a class="btn" href="tel:+905316666606">0531 666 66 06</a>
     </section>
 
   </main>
 
-  <!-- TOAST -->
-  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-
+  <div class="toast" id="toast" aria-live="polite"></div>
   <script src="./assets/app.js"></script>
 </body>
 </html>
