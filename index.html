@@ -7,9 +7,12 @@
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
   <link rel="stylesheet" href="./assets/style.css" />
 </head>
+
 <body>
   <main class="wrap">
-<section class="card">
+
+    <!-- BANKA -->
+    <section class="card">
       <h2>Vakıf Katılım</h2>
       <div style="font-size:20px; font-weight:800; margin:8px 0 2px;">Vakıf Katılım bankasına ait IBAN bilgilerimiz</div>
       <p class="small">Bu sayfadaki tüm alanlar kopyalanabilir.</p>
@@ -35,8 +38,8 @@
       <div class="small">Açıklama örnekleri (kopyala)</div>
       <div class="row">
         <div class="field mono" id="descTc" data-copy="altın karşılığını elden aldım tc numaram: ">
-        altın karşılığını elden aldım tc numaram: ***********
-      </div>
+          altın karşılığını elden aldım tc numaram: ***********
+        </div>
         <button class="secondary" onclick="copyFrom('descTc','status')">Kopyala</button>
       </div>
 
@@ -44,14 +47,15 @@
 
       <div class="row">
         <div class="field mono" id="descTax" data-copy="altın karşılığını elden aldım vergi numaram: ">
-        altın karşılığını elden aldım vergi numaram: **********
-      </div>
+          altın karşılığını elden aldım vergi numaram: **********
+        </div>
         <button class="secondary" onclick="copyFrom('descTax','status')">Kopyala</button>
       </div>
 
       <p class="small status" id="status" aria-live="polite"></p>
     </section>
 
+    <!-- PDF -->
     <section class="card">
       <h2>Belgeler (PDF)</h2>
 
@@ -59,8 +63,7 @@
         <div class="card" style="margin:0;">
           <h2 style="margin-bottom:6px;">Altın Alım Belgesi</h2>
           <p class="small">Alım yaparken indir, doldur, imzala.</p>
-          <p class="small"><strong>Not:</strong> Eğer <strong>müşteriye</strong> para <strong>gönderiliyorsa</strong> bu
-            belge kullanılır.</p>
+          <p class="small"><strong>Not:</strong> Eğer <strong>müşteriye</strong> para <strong>gönderiliyorsa</strong> bu belge kullanılır.</p>
           <div style="height:10px"></div>
           <a class="btn secondary" href="../AKAKÇE_ALIM.pdf" download>İndir (Altın Alım Belgesi)</a>
         </div>
@@ -68,116 +71,84 @@
         <div class="card" style="margin:0;">
           <h2 style="margin-bottom:6px;">Altın Satım Belgesi</h2>
           <p class="small">Satım yaparken indir, doldur, imzala.</p>
-          <p class="small"><strong>Not:</strong> Eğer <strong>müşteriden</strong> para <strong>geliyorsa</strong> bu
-            belge kullanılır.</p>
+          <p class="small"><strong>Not:</strong> Eğer <strong>müşteriden</strong> para <strong>geliyorsa</strong> bu belge kullanılır.</p>
           <div style="height:10px"></div>
           <a class="btn secondary" href="../AKAKÇE_SATIM.pdf" download>İndir (Altın Satım Belgesi)</a>
         </div>
       </div>
+    </section>
 
-      <section class="card">
-  <div class="row" style="justify-content:space-between;">
-    <div>
-      <h2>Telefonlar</h2>
-      <p class="small">Tek tıkla ara veya kopyala.</p>
-    </div>
-
-    <a class="btn secondary" href="./telefonlar.html">Tümü</a>
-  </div>
-
-  <div class="grid2" style="margin-top:12px;">
-
-    <!-- Hazine 1 -->
-    <div class="card" style="margin:0;">
-      <h2>Hazine</h2>
-
-      <div class="field mono" id="tel1" data-copy="+905316666606">
-        0531 666 66 06
+    <!-- TELEFONLAR -->
+    <section class="card">
+      <div class="row" style="justify-content:space-between;">
+        <div>
+          <h2>Telefonlar</h2>
+          <p class="small">Tek tıkla ara veya kopyala.</p>
+        </div>
+        <a class="btn secondary" href="./telefonlar.html">Tümü</a>
       </div>
 
-      <div class="row">
-        <a class="btn" href="tel:+905316666606">Ara</a>
-        <button class="secondary" onclick="copyFrom('tel1','st1')">Kopyala</button>
+      <div class="grid2" style="margin-top:12px;">
+
+        <div class="card" style="margin:0;">
+          <h2>Hazine</h2>
+          <div class="field mono" id="tel1" data-copy="+905316666606">0531 666 66 06</div>
+          <div class="row" style="margin-top:10px;">
+            <a class="btn" href="tel:+905316666606">Ara</a>
+            <button class="secondary" onclick="copyFrom('tel1','st1')">Kopyala</button>
+          </div>
+          <div class="status small" id="st1"></div>
+        </div>
+
+        <div class="card" style="margin:0;">
+          <h2>Hazine</h2>
+          <div class="field mono" id="tel2" data-copy="+905323558232">0532 355 82 32</div>
+          <div class="row" style="margin-top:10px;">
+            <a class="btn" href="tel:+905323558232">Ara</a>
+            <button class="secondary" onclick="copyFrom('tel2','st2')">Kopyala</button>
+          </div>
+          <div class="status small" id="st2"></div>
+        </div>
+
+        <div class="card" style="margin:0;">
+          <h2>Gebze Şube</h2>
+          <div class="field mono" id="tel3" data-copy="+905308325572">0530 832 55 72</div>
+          <div class="row" style="margin-top:10px;">
+            <a class="btn" href="tel:+905308325572">Ara</a>
+            <button class="secondary" onclick="copyFrom('tel3','st3')">Kopyala</button>
+          </div>
+          <div class="status small" id="st3"></div>
+        </div>
+
+        <div class="card" style="margin:0;">
+          <h2>Bilezik Şube</h2>
+          <div class="field mono" id="tel4" data-copy="+905303898676">0530 389 86 76</div>
+          <div class="row" style="margin-top:10px;">
+            <a class="btn" href="tel:+905303898676">Ara</a>
+            <button class="secondary" onclick="copyFrom('tel4','st4')">Kopyala</button>
+          </div>
+          <div class="status small" id="st4"></div>
+        </div>
+
+        <div class="card" style="margin:0;">
+          <h2>Muhasebe</h2>
+          <div class="field mono" id="tel5" data-copy="+905364746882">0536 474 68 82</div>
+          <div class="row" style="margin-top:10px;">
+            <a class="btn" href="tel:+905364746882">Ara</a>
+            <button class="secondary" onclick="copyFrom('tel5','st5')">Kopyala</button>
+          </div>
+          <div class="status small" id="st5"></div>
+        </div>
+
       </div>
+    </section>
 
-      <div class="status small" id="st1"></div>
-    </div>
-
-    <!-- Hazine 2 -->
-    <div class="card" style="margin:0;">
-      <h2>Hazine</h2>
-
-      <div class="field mono" id="tel2" data-copy="+905323558232">
-        0532 355 82 32
-      </div>
-
-      <div class="row">
-        <a class="btn" href="tel:+905323558232">Ara</a>
-        <button class="secondary" onclick="copyFrom('tel2','st2')">Kopyala</button>
-      </div>
-
-      <div class="status small" id="st2"></div>
-    </div>
-
-    <!-- Gebze -->
-    <div class="card" style="margin:0;">
-      <h2>Gebze Şube</h2>
-
-      <div class="field mono" id="tel3" data-copy="+905308325572">
-        0530 832 55 72
-      </div>
-
-      <div class="row">
-        <a class="btn" href="tel:+905308325572">Ara</a>
-        <button class="secondary" onclick="copyFrom('tel3','st3')">Kopyala</button>
-      </div>
-
-      <div class="status small" id="st3"></div>
-    </div>
-
-    <!-- Bilezik -->
-    <div class="card" style="margin:0;">
-      <h2>Bilezik Şube</h2>
-
-      <div class="field mono" id="tel4" data-copy="+905303898676">
-        0530 389 86 76
-      </div>
-
-      <div class="row">
-        <a class="btn" href="tel:+905303898676">Ara</a>
-        <button class="secondary" onclick="copyFrom('tel4','st4')">Kopyala</button>
-      </div>
-
-      <div class="status small" id="st4"></div>
-    </div>
-
-    <!-- Muhasebe -->
-    <div class="card" style="margin:0;">
-      <h2>Muhasebe</h2>
-
-      <div class="field mono" id="tel5" data-copy="+905364746882">
-        0536 474 68 82
-      </div>
-
-      <div class="row">
-        <a class="btn" href="tel:+905364746882">Ara</a>
-        <button class="secondary" onclick="copyFrom('tel5','st5')">Kopyala</button>
-      </div>
-
-      <div class="status small" id="st5"></div>
-    </div>
-
-  </div>
-</section>
-
-
-      <div style="height:12px"></div>
-</section>
-
+    <!-- İLETİŞİM -->
     <section class="card">
       <h2>İletişim</h2>
       <p><strong>Aklına takılan bir konu olursa bizi arayabilirsin:</strong> <span class="mono">0531 666 66 06</span></p>
     </section>
+
   </main>
 
   <script src="./assets/app.js"></script>
