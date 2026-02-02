@@ -3,111 +3,127 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
   <title>Telefonlar</title>
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <link rel="stylesheet" href="./assets/style.css" />
 
-  <link rel="stylesheet" href="../assets/style.css" />
+  <style>
+    /* Telefon listesi: kart değil, clean liste */
+    .phoneList { margin-top: 10px; }
+    .phoneItem{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:12px 12px;
+      border:1px solid var(--line); border-radius:14px;
+      background: rgba(255,255,255,.04);
+    }
+    .phoneLeft{ min-width: 0; }
+    .phoneName{ font-weight:800; margin:0; font-size:14px; }
+    .phoneNo{ margin-top:6px; }
+    .phoneActions{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btnIcon{
+      width:44px; height:44px; padding:0;
+      border-radius:12px;
+    }
+    .btnIcon.secondary{ background: rgba(255,255,255,.10); }
+    .topbar{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  </style>
 </head>
 
 <body>
-
-<main class="wrap">
-
-<section class="card">
-
-  <div class="row" style="justify-content:space-between;">
-    <h2>Tüm Telefonlar</h2>
-    <a class="btn secondary" href="./index.html">← Geri</a>
-  </div>
-
-  <div class="grid2" style="margin-top:12px;">
-
-    <!-- Hazine 1 -->
-    <div class="card" style="margin:0;">
-      <h2>Hazine</h2>
-
-      <div class="field mono" id="t1" data-copy="+905316666606">
-        0531 666 66 06
+  <main class="wrap">
+    <section class="card">
+      <div class="topbar">
+        <div>
+          <h2 style="margin:0 0 6px;">Telefonlar</h2>
+          <p class="small" style="margin:0;">Ara veya kopyala.</p>
+        </div>
+        <a class="btn secondary" href="./index.html">← Geri</a>
       </div>
 
-      <div class="row">
-        <a class="btn" href="tel:+905316666606">Ara</a>
-        <button class="secondary" onclick="copyFrom('t1','s1')">Kopyala</button>
+      <div class="phoneList">
+
+        <!-- Hazine 1 -->
+        <div class="phoneItem">
+          <div class="phoneLeft">
+            <div class="phoneName">Hazine</div>
+            <div class="field mono phoneNo" id="p1" data-copy="+905316666606">0531 666 66 06</div>
+            <div class="status small" id="ps1"></div>
+          </div>
+
+          <div class="phoneActions">
+            <a class="btn btnIcon" href="tel:+905316666606" title="Ara">📞</a>
+            <button class="secondary btnIcon" onclick="copyFrom('p1','ps1')" title="Kopyala">📋</button>
+          </div>
+        </div>
+
+        <div style="height:10px"></div>
+
+        <!-- Hazine 2 -->
+        <div class="phoneItem">
+          <div class="phoneLeft">
+            <div class="phoneName">Hazine</div>
+            <div class="field mono phoneNo" id="p2" data-copy="+905323558232">0532 355 82 32</div>
+            <div class="status small" id="ps2"></div>
+          </div>
+
+          <div class="phoneActions">
+            <a class="btn btnIcon" href="tel:+905323558232" title="Ara">📞</a>
+            <button class="secondary btnIcon" onclick="copyFrom('p2','ps2')" title="Kopyala">📋</button>
+          </div>
+        </div>
+
+        <div style="height:10px"></div>
+
+        <!-- Gebze -->
+        <div class="phoneItem">
+          <div class="phoneLeft">
+            <div class="phoneName">Gebze Şube</div>
+            <div class="field mono phoneNo" id="p3" data-copy="+905308325572">0530 832 55 72</div>
+            <div class="status small" id="ps3"></div>
+          </div>
+
+          <div class="phoneActions">
+            <a class="btn btnIcon" href="tel:+905308325572" title="Ara">📞</a>
+            <button class="secondary btnIcon" onclick="copyFrom('p3','ps3')" title="Kopyala">📋</button>
+          </div>
+        </div>
+
+        <div style="height:10px"></div>
+
+        <!-- Bilezik -->
+        <div class="phoneItem">
+          <div class="phoneLeft">
+            <div class="phoneName">Bilezik Şube</div>
+            <div class="field mono phoneNo" id="p4" data-copy="+905303898676">0530 389 86 76</div>
+            <div class="status small" id="ps4"></div>
+          </div>
+
+          <div class="phoneActions">
+            <a class="btn btnIcon" href="tel:+905303898676" title="Ara">📞</a>
+            <button class="secondary btnIcon" onclick="copyFrom('p4','ps4')" title="Kopyala">📋</button>
+          </div>
+        </div>
+
+        <div style="height:10px"></div>
+
+        <!-- Muhasebe -->
+        <div class="phoneItem">
+          <div class="phoneLeft">
+            <div class="phoneName">Muhasebe</div>
+            <div class="field mono phoneNo" id="p5" data-copy="+905364746882">0536 474 68 82</div>
+            <div class="status small" id="ps5"></div>
+          </div>
+
+          <div class="phoneActions">
+            <a class="btn btnIcon" href="tel:+905364746882" title="Ara">📞</a>
+            <button class="secondary btnIcon" onclick="copyFrom('p5','ps5')" title="Kopyala">📋</button>
+          </div>
+        </div>
+
       </div>
+    </section>
+  </main>
 
-      <div class="status small" id="s1"></div>
-    </div>
-
-    <!-- Hazine 2 -->
-    <div class="card" style="margin:0;">
-      <h2>Hazine</h2>
-
-      <div class="field mono" id="t2" data-copy="+905323558232">
-        0532 355 82 32
-      </div>
-
-      <div class="row">
-        <a class="btn" href="tel:+905323558232">Ara</a>
-        <button class="secondary" onclick="copyFrom('t2','s2')">Kopyala</button>
-      </div>
-
-      <div class="status small" id="s2"></div>
-    </div>
-
-    <!-- Gebze -->
-    <div class="card" style="margin:0;">
-      <h2>Gebze Şube</h2>
-
-      <div class="field mono" id="t3" data-copy="+905308325572">
-        0530 832 55 72
-      </div>
-
-      <div class="row">
-        <a class="btn" href="tel:+905308325572">Ara</a>
-        <button class="secondary" onclick="copyFrom('t3','s3')">Kopyala</button>
-      </div>
-
-      <div class="status small" id="s3"></div>
-    </div>
-
-    <!-- Bilezik -->
-    <div class="card" style="margin:0;">
-      <h2>Bilezik Şube</h2>
-
-      <div class="field mono" id="t4" data-copy="+905303898676">
-        0530 389 86 76
-      </div>
-
-      <div class="row">
-        <a class="btn" href="tel:+905303898676">Ara</a>
-        <button class="secondary" onclick="copyFrom('t4','s4')">Kopyala</button>
-      </div>
-
-      <div class="status small" id="s4"></div>
-    </div>
-
-    <!-- Muhasebe -->
-    <div class="card" style="margin:0;">
-      <h2>Muhasebe</h2>
-
-      <div class="field mono" id="t5" data-copy="+905364746882">
-        0536 474 68 82
-      </div>
-
-      <div class="row">
-        <a class="btn" href="tel:+905364746882">Ara</a>
-        <button class="secondary" onclick="copyFrom('t5','s5')">Kopyala</button>
-      </div>
-
-      <div class="status small" id="s5"></div>
-    </div>
-
-  </div>
-
-</section>
-
-</main>
-
-<script src="../app.js"></script>
+  <script src="./assets/app.js"></script>
 </body>
 </html>
